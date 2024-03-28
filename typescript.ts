@@ -14,7 +14,7 @@ function startup() : void {
     const clear1 = document.getElementById("resetCourseNew");
     const clear2 = document.getElementById("resetCourseUpdate");
     submit1?.addEventListener("click", function(){add(this)});
-    submit2?.addEventListener("click", function(){update(this)});
+    submit2?.addEventListener("click", function(){update()});
     clear1?.addEventListener("click", function(){clear(this)});
     clear2?.addEventListener("click", function(){clear(this)});
     load();
@@ -111,7 +111,7 @@ function add(object : HTMLElement) : void {
     populate();
 }
     
-function update(object : HTMLElement) : void {
+function update() : void {
     document.getElementsByTagName("select")[0].value;
     let form = document.getElementsByTagName("form")[1];
     for (let index = 0; index < content.length; index++) {

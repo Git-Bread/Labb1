@@ -18,7 +18,9 @@ function startup() : void {
     clear1?.addEventListener("click", function(){clear(this)});
     clear2?.addEventListener("click", function(){clear(this)});
     load();
-    populate();
+    if (content != undefined) {
+        populate();   
+    }
 }
 
 function save() : void {

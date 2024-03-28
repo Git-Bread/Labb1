@@ -9,13 +9,44 @@
         <script src="typescript.ts" type="text/javascript"></script>
     </head>
     <body>
-        <table>
-            <tr>
-                <h3>Kurskod</h3>
-                <h3>Namn</h3>
-                <h3>Progression</h3>
-                <h3>Syllabus</h3>
-            </tr>
-        </table>
+        <section>
+            <table>
+                <tr>
+                    <th id="head1">Kurskod</th>
+                    <th id="head2">Namn</th>
+                    <th id="head3">Progression</th>
+                    <th id="head4">Url</th>
+                </tr>
+            </table>
+        </section>
+        <section>
+            <form>
+                <h2>Ny Kurs</h2>
+                <label>Kurskod</label>
+                <input type="text">
+                <label>Kursnamn</label>
+                <input type="text">
+                <label>Progression</label>
+                <input type="text">
+                <label>Syllabus</label>
+                <input type="text">
+                <button type="submit" id="newCourseSubmit">Ny Kurs</button>
+            </form>
+        </section>
+        <section>
+            <form>
+                <h2>Uppdatera kurs</h2>
+                <label>Kurskod</label>
+                <select>
+                </select>
+                <label>Kursnamn</label>
+                <input type="text">
+                <label>Progression</label>
+                <input type="text">
+                <label>Syllabus</label>
+                <input type="text">
+                <button type="submit" id="updateCourseSubmit">Uppdatera Kurs</button>
+            </form>
+        </section>
     </body>
 </html>

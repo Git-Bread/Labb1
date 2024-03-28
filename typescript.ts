@@ -17,8 +17,8 @@ function startup() : void {
     submit2?.addEventListener("click", function(){update(this)});
     clear1?.addEventListener("click", function(){clear(this)});
     clear2?.addEventListener("click", function(){clear(this)});
-    load;
-    populate;
+    load();
+    populate();
 }
 
 function save() : void {
@@ -27,11 +27,14 @@ function save() : void {
 
 function load() : void {
     let item = localStorage.getItem("list");
-    console.log(item);
+    content = JSON.parse(item as string);
+    console.log(content);
 }
 
+//creates new elements and populates table
 function populate() : void {
     let table = document.getElementsByTagName("table")[0];
+    let select = document.getElementsByTagName("select")[0];
     for (let index = 0; index < content.length; index++) {
         //create elements
         let container = document.createElement("tr");
@@ -39,12 +42,14 @@ function populate() : void {
         let nameObject = document.createElement("td");
         let progressionObject = document.createElement("td");
         let syllabusObject = document.createElement("td");
+        let option = document.createElement("option");
 
         //assign value
         codeObject.innerHTML = content[index].code;
         nameObject.innerHTML = content[index].name;
         progressionObject.innerHTML = content[index].progression;
         syllabusObject.innerHTML = content[index].syllabus;
+        option.innerHTML = content[index].code;
 
         //appends
         container.append(codeObject);
@@ -52,6 +57,7 @@ function populate() : void {
         container.append(progressionObject);
         container.append(syllabusObject);
         table.append(container);
+        select.append(option);
     }
 }
 
@@ -106,6 +112,7 @@ function add(object : HTMLElement) : void {
     content.push(newCourse);
     save();
     clear(object);
+    populate();
 }
     
 function update(object : HTMLElement) : void {

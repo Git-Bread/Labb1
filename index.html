@@ -6,7 +6,7 @@
         <meta name="description" content="Labboration 1">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.scss">
-        <script src="typescript.ts" type="text/javascript"></script>
+        <script src="typescript.ts"></script>
     </head>
     <body>
         <section>
@@ -22,14 +22,14 @@
         <section>
             <form>
                 <h2>Ny Kurs</h2>
-                <label>Kurskod</label>
-                <input type="text">
-                <label>Kursnamn</label>
-                <input type="text">
-                <label>Progression</label>
-                <input type="text">
-                <label>Syllabus</label>
-                <input type="text">
+                <label for="code">Kurskod</label>
+                <input type="text" name="code" id="code">
+                <label for="newName">Kursnamn</label>
+                <input type="text" name="newName" id="newName">
+                <label for="progression">Progression</label>
+                <input type="text" name="progression" id="progression">
+                <label for="sylla">Syllabus</label>
+                <input type="text" name="sylla" id="sylla">
                 <div>
                     <button type="button" id="newCourseSubmit">Ny Kurs</button>
                     <button type="button" id="resetCourseNew">Rensa</button>
@@ -37,15 +37,15 @@
             </form>
             <form>
                 <h2>Uppdatera kurs</h2>
-                <label>Kurskod</label>
-                <select>
+                <label for="ucode">Kurskod</label>
+                <select name="ucode" id="ucode">
                 </select>
-                <label>Kursnamn</label>
-                <input type="text">
-                <label>Progression</label>
-                <input type="text">
-                <label>Syllabus</label>
-                <input type="text">
+                <label for="uname">Kursnamn</label>
+                <input type="text" name="uname" id="uname">
+                <label for="uprog">Progression</label>
+                <input type="text" name="uprog" id="uprog">
+                <label for="usyl">Syllabus</label>
+                <input type="text" name="usyl" id="usyl">
                 <div>
                     <button type="button" id="updateCourseSubmit">Uppdatera Kurs</button>
                     <button type="button" id="resetCourseUpdate">Rensa</button>

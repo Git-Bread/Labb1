@@ -17,7 +17,9 @@ function startup() : void {
     submit2?.addEventListener("click", function(){update()});
     clear1?.addEventListener("click", function(){clear(this)});
     clear2?.addEventListener("click", function(){clear(this)});
-    load();
+    if (localStorage.getItem("list")) {
+        load();
+    }
     if (content != undefined) {
         populate();   
     }

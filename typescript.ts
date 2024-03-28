@@ -35,6 +35,12 @@ function load() : void {
 function populate() : void {
     let table = document.getElementsByTagName("table")[0];
     let select = document.getElementsByTagName("select")[0];
+
+    //removes all old tables to stop duplicate
+    while (table.children[1]) {
+        table.removeChild(table.lastChild as HTMLElement);
+    }
+
     for (let index = 0; index < content.length; index++) {
         //create elements
         let container = document.createElement("tr");
@@ -87,18 +93,8 @@ function add(object : HTMLElement) : void {
     }
 
     //checks for valid input by comparing to regex and checking lenght
-    let pattern = /[a-c]/;
     let val = form?.getElementsByTagName("input")[2].value.toLowerCase() as string;
-
-    //checks lenght of string
-    if (val.length > 1) {
-        window.alert("för lång progression, en symbol tack");
-        return;
-    }
-
-    //checks content of string
-    if (!pattern.test(val)) {
-        window.alert("invalid progression (a, b, c är correkta)");
+    if (!validCheck(val)) {
         return;
     }
     form?.getElementsByTagName("input")[2].value.toUpperCase();
@@ -116,13 +112,42 @@ function add(object : HTMLElement) : void {
 }
     
 function update(object : HTMLElement) : void {
-    
+    document.getElementsByTagName("select")[0].value;
+    let form = document.getElementsByTagName("form")[1];
+    for (let index = 0; index < content.length; index++) {
+        if(content[index].code == document.getElementsByTagName("select")[0].value) {
+            content[index].name = form.getElementsByTagName("input")[0].value;
+            if (!validCheck(form.getElementsByTagName("input")[1].value)) {
+                return;
+            }
+            content[index].progression = form.getElementsByTagName("input")[1].value;
+            content[index].syllabus = form.getElementsByTagName("input")[2].value;
+        }
+    }
+    save();
+    populate();
 }
 
 //emties fields by calling reset
 function clear(object : HTMLElement) : void {
     let parent = object.parentElement?.parentElement as HTMLFormElement;
     parent.reset();
+}
+
+function validCheck(text: string) : boolean{
+    let pattern = /[a-c]/;
+    //checks lenght of string
+    if (text.length > 1) {
+        window.alert("för lång progression, en symbol tack");
+        return false;
+    }
+    
+    //checks content of string
+    if (!pattern.test(text)) {
+        window.alert("invalid progression (a, b, c är correkta)");
+        return false;
+    }
+    return true;
 }
 
 window.onload = startup;   
